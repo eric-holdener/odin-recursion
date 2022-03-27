@@ -24,5 +24,35 @@ def fibs_rec(num)
   end
 end
 
+def merge_sort(arr)
+  if arr.length < 2
+    return arr
+  else
+    full_arr = []
+    left_arr = merge_sort(arr[0..arr.length/2-1])
+    right_arr = merge_sort(arr[arr.length/2..])
+    i_l = 0
+    i_r = 0
+    while i_l < left_arr.length && i_r < right_arr.length
+      if left_arr[i_l] < right_arr[i_r]
+        full_arr.push(left_arr[i_l])
+        i_l += 1
+      else
+        full_arr.push(right_arr[i_r])
+        i_r += 1
+      end
+    end
+    if i_l == left_arr.length
+      full_arr.push(right_arr[i_r..])
+    else
+      full_arr.push(left_arr[i_l..])
+    end
+    full_arr = full_arr.flatten
+  end
+end
 p fibs(8)
 p fibs_rec(7)
+
+arr = [1,4,2,6,3,7,5,8]
+sorted_arr = merge_sort(arr)
+p sorted_arr
