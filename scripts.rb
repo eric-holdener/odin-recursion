@@ -15,11 +15,11 @@ def fibs(num)
 end
 
 def fibs_rec(num)
-  if num === 0
+  if num === 0 
     return 0
-  elsif num === 1
+  elsif num === 1 
     return 1
-  else
+  else 
     return fibs_rec(num-1) + fibs_rec(num-2)
   end
 end
@@ -55,4 +55,5 @@ p fibs_rec(7)
 
 arr = [1,4,2,6,3,7,5,8]
 sorted_arr = merge_sort(arr)
-p sorted_arr
+p "Unsorted Array = #{arr}"
+p "Sorted Array = #{sorted_arr}"
